@@ -58,8 +58,6 @@ namespace challenge.Repositories
         public Object GetCompensationById(string id)
         {
             var given_employee = _employeeContext.Employees.SingleOrDefault(e => e.EmployeeId == id);
-            Console.WriteLine(given_employee.FirstName);
-            Console.WriteLine(given_employee.Compensation.Salary);
             return new { employee = given_employee, compensation = given_employee.Compensation };
         }
 
