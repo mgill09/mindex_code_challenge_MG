@@ -34,7 +34,7 @@ namespace code_challenge
             services.AddScoped<IEmployeeRepository, EmployeeRespository>();
             services.AddTransient<EmployeeDataSeeder>();
             services.AddScoped<IEmployeeService, EmployeeService>();
-            services.AddMvc(option => option.EnableEndpointRouting = false);
+            services.AddMvc(option => option.EnableEndpointRouting = false); //slightly modified to allow compatability with VS 2022/latest .NET Core
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

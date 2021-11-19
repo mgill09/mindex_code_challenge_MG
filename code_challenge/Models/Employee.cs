@@ -8,10 +8,6 @@ namespace challenge.Models
 {
     public class Employee
     {
-        public Employee()
-        {
-            //Compensation = new Compensation(EmployeeId);
-        }
         [Key]
         public String EmployeeId { get; set; }
         public String FirstName { get; set; }
@@ -21,6 +17,11 @@ namespace challenge.Models
         public virtual List<Employee> DirectReports { get; set; }
         public Compensation Compensation { get; set; }
 
+
+        /*
+            This recursive method gets the total number of reports under a given employee by traversing the
+            employee n-ary tree and recursively gathering the number of reports
+         */
         public int GetTotalReportsTo(){
             if (DirectReports.Count == 0)
             {

@@ -72,6 +72,10 @@ namespace challenge.Controllers
             return Ok(newEmployee);
         }
 
+        /*
+         This new endpoint accepts an employeeId as input and updates the selected employee
+         with the compensation provided in the request body (see README for body structure)
+         */
         [HttpPut("compensation/{id}")]
         public IActionResult UpdateCompensation(String id, [FromBody] Compensation newCompensation)
         {
@@ -81,11 +85,15 @@ namespace challenge.Controllers
             if (existingEmployee == null)
                 return NotFound();
 
-            string result = _employeeService.UpdateCompensation(existingEmployee, newCompensation);
+            Compensation result = _employeeService.UpdateCompensation(existingEmployee, newCompensation);
 
             return Ok(result);
         }
 
+        /*
+         This new endpoint accepts an employeeId as input and retrieves the employees information,
+         along with a separate type for the compensation
+         */
         [HttpGet("compensation/{id}")]
         public IActionResult GetCompensationById(String id)
         {

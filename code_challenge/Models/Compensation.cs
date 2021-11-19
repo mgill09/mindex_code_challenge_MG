@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace challenge.Models
 {
-    [Owned]
+    [Owned] //Indicates this is an Owned Entity, owned by Employee
     public class Compensation
     {
-        //public Compensation(string id) { Id = id; }
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //Generates a new ID for each Compensation
         [Key]
         public String Id { get; set; }
         public int Salary { get; set; }

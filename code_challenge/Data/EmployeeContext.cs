@@ -11,6 +11,7 @@ namespace challenge.Data
     {
         public EmployeeContext(DbContextOptions<EmployeeContext> options) : base(options)
         {
+            //Need to explicitly include the objects DirectReports and Compensation in order for the values to be passed properly
             var types = this.Employees.Include(m => m.DirectReports).Include(m=>m.Compensation).ToList();
         }
 
@@ -19,15 +20,6 @@ namespace challenge.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            //modelBuilder.Entity<Employee>().OwnsOne(e => e.Compensation, comp =>
-            // {
-            //     comp.Property(x => x.Salary);
-            //     comp.Property(x => x.EffectiveDate);
-            // });
-
-            //modelBuilder.Entity<Employee>()
-            //    .Property(e => e.Compensation.Id)
-            //.ValueGeneratedOnAdd();
         }
     }
 }

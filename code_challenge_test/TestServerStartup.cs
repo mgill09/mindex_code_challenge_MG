@@ -30,8 +30,8 @@ namespace code_challenge.Tests.Integration
             services.AddScoped<IEmployeeRepository,EmployeeRespository>();
             services.AddTransient<EmployeeDataSeeder>();
             services.AddScoped<IEmployeeService, EmployeeService>();
-            services.AddMvc(option => option.EnableEndpointRouting = false)
-            .AddApplicationPart(typeof(Startup).Assembly);
+            services.AddMvc(option => option.EnableEndpointRouting = false) //slightly modified to allow compatability with VS 2022/latest .NET Core
+            .AddApplicationPart(typeof(Startup).Assembly); //added to allow compatability with VS 2022/latest .NET Core
 
         }
 

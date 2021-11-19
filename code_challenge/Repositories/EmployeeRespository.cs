@@ -37,28 +37,28 @@ namespace challenge.Repositories
             var given_employee = _employeeContext.Employees.SingleOrDefault(e => e.EmployeeId == id);
             var total_reports_count = given_employee.GetTotalReportsTo();
 
-            return new ReportingStructure(given_employee, total_reports_count);
+            return new ReportingStructure(given_employee, total_reports_count); //creates a temporary report structure object on the fly and does not persist, per requirements
         }
 
-        public String UpdateCompensation(Employee employee, Compensation compensation)
+        public Compensation UpdateCompensation(Employee employee, Compensation compensation)
         {
             if (compensation.Salary != 0 && compensation.EffectiveDate != null)
             {
                 employee.Compensation = compensation;
                 _employeeContext.Update(employee);
-                return "Compensation updated successfully.";
+                return employee.Compensation;
 
             }
             else
             {
-                return "Incorrect compensation provided.";
+                return null;
             }
         }
 
-        public Object GetCompensationById(string id)
+        public Employee GetCompensationById(string id)
         {
             var given_employee = _employeeContext.Employees.SingleOrDefault(e => e.EmployeeId == id);
-            return new { employee = given_employee, compensation = given_employee.Compensation };
+            return given_employee;
         }
 
         public Task SaveAsync()

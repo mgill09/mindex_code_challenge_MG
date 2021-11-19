@@ -50,19 +50,19 @@ namespace challenge.Services
             return null;
         }
 
-        public String UpdateCompensation(Employee employee, Compensation compensation)
+        public Compensation UpdateCompensation(Employee employee, Compensation compensation)
         {
             if (employee != null)
             {
                 _employeeRepository.UpdateCompensation(employee, compensation);
                 _employeeRepository.SaveAsync().Wait();
-                return "OK";
+                return employee.Compensation;
             }
 
             return null;
         }
 
-        public Object GetCompensationById(string id)
+        public Employee GetCompensationById(string id)
         {
             if (!String.IsNullOrEmpty(id))
             {
