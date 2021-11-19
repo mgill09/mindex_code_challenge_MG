@@ -24,9 +24,9 @@ Some disclaimers/notes:
     "effectiveDate": "Sept 10 2012"
     }
    
-   The results are organized slightly differently due to the Owned Entity, but the data is all there in roughly the same format that was asked (ideally the effectiveDate would have checks to ensure it is a date format but I ran out of time).  There is also an arugment to be made that the endpoints could potentially be outside of the /employee endpoint, but I thought it was fitting to have them as extensions since all of this data is directly related to the employee.
+   The put will return a reponse of the Compensation object, while the get will return the Employee object that contains the Compensation object.  The results are organized slightly different than what the exercise calls for due to the Owned Entity, but the data is all there in roughly the same format that was asked (ideally the effectiveDate would have checks to ensure it is a date format but I ran out of time).  There is also an arugment to be made that the endpoints could potentially be outside of the /employee endpoint, but I thought it was fitting to have them as extensions since all of this data is directly related to the employee.
    
- 7) If I had more time I would've liked to improve the error handling on each new endpoint, as well as thorough commenting of code - I also did not get a chance to create additional test cases, but I did test them manually with success - although I have a lot of experience with MS test cases and I wanted to demonstrate that I could learn some of the things I did not previously know.  I will try to revisit to do these things this week if I am able.
+ 7) If I had more time I would've liked to improve the error handling on each new endpoint, as well as more thorough commenting of code - I did have some time to add three new test cases for the new functionality so I went back and added them.  I will try to revisit to do these things this week if I am able.
  
  8) At the very least, this was a fantastic learning experience for me!
    
